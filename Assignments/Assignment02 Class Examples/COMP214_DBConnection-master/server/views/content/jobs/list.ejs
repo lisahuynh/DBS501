@@ -1,0 +1,101 @@
+<style>
+    input{
+        border: 0;
+        outline:0;
+        width:fit-content;
+    }
+    .form-group{
+        border-style: solid;
+        padding: 5px;
+        width: 275px;
+    }
+    .dropDown-group{
+        text-align: center;
+        border-style: solid;
+    }
+</style>
+
+<div class="container" style="height: 1400px;">
+    <div class="row">
+        <div style="border-style: solid;" class="offset-md-1 col-md-9">
+            <h1><%= title %></h1>
+            <br>
+            <form class="form" method="POST">
+                <table style="width:100%; border-collapse: seperate; border-spacing: 5em;">
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label for="jobIDTextField">Job Id: </label>
+                                <input type="text"
+                                id="jobIDTextField"
+                                name="job_id" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <div>
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i> Find Job</button>
+                        </div> 
+                    </tr>
+                </table>  
+            </form>
+        </div>
+        <div class="offset-md-0 col-md-12">
+            <h1>
+                Display Jobs
+            </h1>
+            <a href="/jobs/add" class="btn btn-primary" role="button">
+                <i class="fas fa-plus-circle"></i> Create new job form</a>
+            <br>
+            <table class="table table-bordered table-striped table-hover">
+                <!-- Header Row-->
+                <tr class="d-flex">
+                    <th class="col-1"></th>
+                    <th class="text-center col-1">Job ID</th>
+                    <th class="text-center col-2">Job Title</th>
+                    <th class="text-center col-1">Min Salary</th>
+                    <th class="col-1">Max Salary</th>
+                    <th class="col-3"></th>
+                    <th class="col-1"></th>
+                    <th class="col-1"></th>
+                    <th class="col-1"></th>
+                </tr>
+
+                <!-- Repeatable Template Row -->
+
+                <% for(let count = 0; count < jobs.length; count++) { %>
+                <!-- Repeatable Template Row -->
+                    <tr class="d-flex">
+                        <td class="col-1"></td>
+                        <td class="text-center col-1">
+                            <%= jobs[count].job_id %>
+                        </td>
+                        <td class="text-center col-2">
+                            <%= jobs[count].job_title %>
+                        </td>
+                        <td class="col-1">
+                            <%= jobs[count].min_salary %>
+                        </td>
+                        <td class="col-1">
+                               <%= jobs[count].max_salary %>
+                        </td>
+                        <td class="col-3"></td>
+                        <td class="text-center col-1">
+                            <a href="/jobs/edit/<%= jobs[count].job_id %>"
+                                class="btn btn-primary btn-sm">
+                            <i class="fas fa-pencil-alt"></i> Edit</a>
+                        </td>
+                            
+                        <td class="text-center col-1">
+                            <a href="/jobs/delete/<%= jobs[count].job_id %>"
+                                class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i> Delete</a>
+                        </td>
+                        <td class="col-1"></td>
+                    </tr>
+                <% } %>
+
+            </table>
+        </div>
+    </div>
+</div>

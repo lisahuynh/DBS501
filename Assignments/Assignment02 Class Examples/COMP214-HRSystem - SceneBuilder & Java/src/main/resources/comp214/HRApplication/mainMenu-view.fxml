@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp214.HRApplication.MainMenuController">
+   <children>
+      <Label text="HR SYSTEM MAIN MENU" textFill="#e7171e">
+         <font>
+            <Font name="Perpetua Titling MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" onAction="#employeesMenu" text="EMPLOYEES" textFill="#2336df">
+         <FlowPane.margin>
+            <Insets top="20.0" />
+         </FlowPane.margin>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#jobsMenu" text="JOBS" textFill="#2336df">
+         <FlowPane.margin>
+            <Insets top="20.0" />
+         </FlowPane.margin>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#departmentsMenu" text="DEPARTMENTS" textFill="#2336df">
+         <FlowPane.margin>
+            <Insets top="20.0" />
+         </FlowPane.margin>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</FlowPane>

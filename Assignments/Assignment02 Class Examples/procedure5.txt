@@ -1,0 +1,36 @@
+
+=======  IN vs OUT example
+
+CREATE OR REPLACE PROCEDURE query_empinfo
+ (p_empid    IN hr_employees.employee_id%TYPE,
+  p_lname  OUT hr_employees.last_name%TYPE,
+  p_salary OUT hr_employees.salary%TYPE) IS
+BEGIN
+    SELECT last_name, salary INTO p_lname, p_salary
+    FROM   hr_employees
+    WHERE  employee_id = p_empid;
+END  query_empinfo;
+/
+
+Task1: Change this procedure to calculate yearly salary as well.  have 4th parameter as p_ysalary (OUT)
+
+
+
+
+Test (Executing)    : 
+Add IF THEN ELSE in BEGIN END. 
+IF yearly salary is grater than 100,000  then print    (v_emp_lname||' earns lot of money '||  v_emp_ysal );
+ELSE (v_emp_lname||' earns not muh of money '||  v_emp_ysal );
+
+Test one time for employee_id 125  and one another test for employee 175
+
+DECLARE
+ v_emp_lname char(50);
+ v_emp_sal number(9,2);
+BEGIN
+    query_empinfo (125, v_emp_lname, v_emp_sal);
+ DBMS_OUTPUT.PUT_LINE(v_emp_lname||' earns '||  v_emp_sal );
+END;
+
+
+

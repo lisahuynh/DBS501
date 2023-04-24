@@ -1,0 +1,33 @@
+<style>
+    input{
+        border: 0;
+        outline:0;
+        width:fit-content;
+    }
+    .form-group{
+        border-style: solid;
+        padding: 5px;
+        width: 275px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div style="border-style: solid;" class="offset-md-1 col-md-9">
+            <h1><%= title %></h1>
+            <br>
+            <div>
+                <td>
+                    <div class="form-group">
+                        <label for="jobTitleTextField">Job Title: </label>
+                        <input type="text"
+                        id="jobTitleTextField"
+                        value="<%= job %>"
+                        disabled
+                        name="job_title" required>
+                    </div>
+                </td>
+            </div>
+        </div>
+    </div>
+</div>

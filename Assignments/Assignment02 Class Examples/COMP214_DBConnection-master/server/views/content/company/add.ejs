@@ -1,0 +1,131 @@
+<style>
+    input{
+        border: 0;
+        outline:0;
+        width:fit-content;
+    }
+    .form-group{
+        border-style: solid;
+        padding: 5px;
+    }
+    .dropDown-group{
+        text-align: center;
+        border-style: solid;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div style="border-style: solid;" class="offset-md-1 col-md-9">
+            <h1><%= title %></h1>
+            <br>
+            <form class="form" method="POST">
+                <table style="width:100%; border-collapse: seperate; border-spacing: 5em;">
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label for="firstNameTextField">First Name: </label>
+                                <input type="text"
+                                id="firstNameTextField"
+                                name="first_name" required>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label for="lastNameTextField">Last Name: </label>
+                                <input type="text"
+                                id="lastNameTextField"
+                                name="last_name" required>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label for="emailTextField">Email: </label>
+                                <input type="text"
+                                id="emailTextField"
+                                name="email" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label for="phoneTextField">Phone: </label>
+                                <input type="text"
+                                id="phoneTextField"
+                                name="phone" required>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label for="dateTextField">HireDate: </label>
+                                <input type="text"
+                                id="dateTextField"
+                                placeholder="MM/DD/YYY"
+                                onfocus="(this.type='date')"
+                                onblur="(this.type='text')"
+                                name="date" required>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label for="salaryTextField">Salary: </label>
+                                <input type="text"
+                                id="salaryTextField"
+                                name="salary" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div></div>
+                        </td>
+                        <td>
+                            <div class="form-group" style="text-align: center;">
+                                <label for="jobsDropDown">JOB_ID     |     JOB_NAME</label>
+                                <select id="jobsDropDown" name="jobs" class="form-control">
+                                    <option value="selectOption">---Please Select a Job---</option>
+                                    <% for(let count = 0; count < jobs.length; count++) { %>
+                                        <option value="<%= jobs[count].job_id %>">
+                                            <%= jobs[count].job_id %> | <%= jobs[count].job_title %>
+                                        </option>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <div class="dropDown-group">
+                    <h5>Manager:</h5>
+                    <label for="managerDropDown">Employee_id | First_name | Last_Name</label>
+                    <select style="text-align: center;" name="managers" id="managerDropDown" class="form-control">
+                        <option value="default">---Please select a manager---</option>
+                        <% for(let count = 0; count < managers.length; count++) { %>
+                            <option value="<%= managers[count].employee_id %>">
+                                <%= managers[count].employee_id %> | <%= managers[count].first_name %> | <%= managers[count].last_name %>
+                            </option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="dropDown-group">
+                    <h5>Department:</h5>
+                    <label for="departmentDropDown">Department_id | DEPARTMENT_NAME</label>
+                    <select style="text-align: center;" name="departments" id="departmentDropDown" class="form-control">
+                        <option value="default">---Please select a department---</option>
+                        <% for(let count = 0; count < departments.length; count++) { %>
+                            <option value="<%= departments[count].department_id %>">
+                                <%= departments[count].department_id %> | <%= departments[count].department_name %>
+                            </option>
+                        <% } %>
+                    </select>
+                </div>
+
+                <div style="text-align: center;">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i> Hire</button>
+                    <a href="/company/list" class="btn btn-warning"><i class="fas fa-undo"></i> Cancel</a>
+                </div>   
+            </form>
+        </div>
+    </div>
+</div>

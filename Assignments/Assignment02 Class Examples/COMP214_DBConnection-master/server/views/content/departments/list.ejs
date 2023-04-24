@@ -1,0 +1,49 @@
+<main class="container">
+    <div class="row">
+        <div class="offset-md-0 col-md-12">
+            <h1>
+                <%= title %>
+            </h1>
+            <a href="/jobs/add" class="btn btn-primary" role="button">
+                <i class="fas fa-plus-circle"></i> Create new Job</a>
+            <br>
+            <table class="table table-bordered table-striped table-hover" style="margin-left:-150px;">
+                <!-- Header Row-->
+                <tr class="d-flex">
+                    <th class="text-center col-1">Job ID</th>
+                    <th class="text-center col-2">Job Title</th>
+                    <th class="text-center col-2">Min Salary</th>
+                    <th class="col-2">Max Salary</th>
+                </tr>
+                <% for(let count = 0; count < job.length; count++) { %>
+                <!-- Repeatable Template Row -->
+                    <tr class="d-flex">
+                        <td class="text-center col-1">
+                           <%= jobs[count].job_id %>
+                        </td>
+                        <td class="text-center col-2">
+                           <%= jobs[count].job_title %>
+                        </td>
+                        <td class="text-center col-2">
+                           <%= jobs[count].min_salary %>
+                        </td>
+                        <td class="col-2">
+                           <%= jobs[count].max_salary %>
+                        </td>
+                        <td class="text-center col-1">
+                            <a href="/jobs/edit/<%= jobs[count].job_id %>"
+                                class="btn btn-primary btn-sm">
+                                <i class="fas fa-pencil-alt"></i> Edit</a>
+                        </td>
+                        
+                        <td class="text-center col-1">
+                            <a href=""
+                                class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i> Delete</a>
+                        </td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</main>

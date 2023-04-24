@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Seneca HR System</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+    {{>header}}
+    <br>
+    <h2>Department List</h2>
+    <form class="empFormList" id="employeeFormList" method="post" action="/department">
+        <button id="submit" name="btnsubmit" type="submit" value="home">Home</button> 
+        <br>
+        <br>
+        <table>
+        <thead>
+            <tr>
+                <th>Department ID</th>
+                <th>Department Name</th>
+                <th>Manager ID</th>
+                <th>Location ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each depts}}
+            <tr>
+                <td>{{this.[0]}}</td>
+                <td>{{this.[1]}}</td>
+                <td>{{this.[2]}}</td>
+                <td>{{this.[3]}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    </form>
+</body>
+</html>

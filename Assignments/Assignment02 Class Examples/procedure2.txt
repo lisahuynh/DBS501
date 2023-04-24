@@ -1,0 +1,78 @@
+CREATE OR REPLACE PROCEDURE CALCULATE_YEARLYSAL_WP 
+(
+  p_EMPLOYEE_ID IN NUMBER 
+) AS 
+v_ysal  number(9,2);
+BEGIN
+    SELECT salary *12 INTO v_ysal FROM hr_employees WHERE employee_id= p_employee_id;
+END CALCULATE_YEARLYSAL_WP;
+
+
+=====
+
+Task 1 :
+
+Create a procedure (sp_createdepartment) without parameters
+This will insert new department into hr_departments with below data
+
+Insert into  xxxxx   values (  450 , ‘New dept’ , 107,1800)
+
+Don’t forget to commit.
+
+
+
+  CREATE OR REPLACE PROCEDURE sp_createdepartment
+AS
+BEGIN
+   INSERT INTO HR_departments VALUES (450, 'New dept', 107,1800);
+    IF SQL%ROWCOUNT =1 THEN   Commit;
+    ELSE ROLLBACK;
+    END IF;
+END;
+
+or
+
+ CREATE OR REPLACE PROCEDURE sp_createdepartment
+AS
+BEGIN
+   INSERT INTO HR_departments VALUES (450, 'New dept', 107,1800);
+    IF SQL%ROWCOUNT =1 THEN   Commit;
+    ELSE ROLLBACK;
+    END IF;
+    
+    EXCEPTION
+     WHEN OTHERS  THEN DBMS_OUTPUT.PUT_LINE ('you can not insert');
+END;
+
+
+
+Task2 :
+
+Create a new procedure called  add_new_department
+
+Assume it will get 3 informations from front end and pass to procedure and procedure will insert into HR_DEPARTMENTS
+
+This is HR_DEPARTMENTS existing structure
+
+
+ CREATE OR REPLACE PROCEDURE add_new_department
+ (
+  p_did  IN  number,
+  p_dname  IN  CHAR,
+  p_mid   IN NUMBER,
+  p_lid   IN NUMBER
+ )
+AS
+BEGIN
+   INSERT INTO HR_departments  VALUES (p_did , p_dname, p_mid,p_lid);
+    IF SQL%ROWCOUNT =1 THEN   Commit;
+    ELSE ROLLBACK;
+    END IF;
+    
+    EXCEPTION
+     WHEN OTHERS  THEN DBMS_OUTPUT.PUT_LINE ('you can not insert duplicate');
+END;
+
+
+EXECUTE add_new_department  (   p_mid=>108,p_did=>490, p_dname=>'New IT', p_lid=> 1900)
+ 
