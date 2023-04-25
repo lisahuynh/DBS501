@@ -76,6 +76,10 @@ input[type="text"], input[type="date"]
     height: 30px;
 }
 
+input:disabled {
+  background: #dddddd;
+}
+
 hr
 {
     background: #da291c;
@@ -96,8 +100,60 @@ form.empForm
     width: 900px;
 }
 
-/*hiringForm.hbs*/
+/*employeeList.hbs*/
+button.editbtn
+{
+    background-color:#0f52ba;
+    border-radius: 5px;
+    border: 1px solid #0f52ba;
+    font-size: 14px;
+    width:150px;
+    height: 30px;
+    color:#ffffff;
+}
 
+form.empFormList
+{
+    border: 0px;
+    height: 600px;
+    left: 0;
+    margin: 0 150px;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 100;
+    width: 1400px;
+}
+table {
+    width: 100%;
+	border:1px solid #b3adad;
+	border-collapse:collapse;
+	padding:5px;
+    text-align: center;
+    }
+table th {
+	border:1px solid #b3adad;
+	padding:5px;
+	background: #da291c;
+	color: #ffffff;
+}
+table td {
+	border:1px solid #b3adad;
+	text-align:center;
+	padding:5px;
+	background: #ffffff;
+	color: #313030;
+}
+
+/*hiringForm.hbs*/
+select {
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 16px;
+    color:#000000;
+    width: 350px;
+    height: 30px;
+}
 div.form-empinfo
 {
 	background-color: #ffffff;
@@ -125,6 +181,38 @@ div.form-info
 	right: 0;
 	text-align: center;
 	top: 200px;
+	width: 600px;
+}
+
+/*employee.hbs*/
+div.form-empdetail
+{
+	background-color: #ffffff;
+	border: 5px solid rgba(85.49%,16.08%,10.98%, 1.0);
+	border-radius: 5px;
+	height: 600px;
+	left: 0;
+	margin: 5vh auto;
+	padding-top: 20px;
+	right: 0;
+	text-align: center;
+	top: 80px;
+	width: 600px;
+}
+
+/*job.hbs*/
+div.form-jobdetail
+{
+	background-color: #ffffff;
+	border: 5px solid rgba(85.49%,16.08%,10.98%, 1.0);
+	border-radius: 5px;
+	height: 220px;
+	left: 0;
+	margin: 5vh auto;
+	padding-top: 20px;
+	right: 0;
+	text-align: center;
+	top: 80px;
 	width: 600px;
 }
 

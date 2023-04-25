@@ -1,7 +1,7 @@
 {
-  "name": "dbs501-assignment2",
+  "name": "dbs501-a02",
   "version": "1.0.0",
-  "description": "DBS501 - Assignment 2 - HR Application Menu",
+  "description": "DBS501 - Assignment 2 - HR Application",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "express-handlebars": "^7.0.2",
+    "express-handlebars": "^7.0.4",
     "oracledb": "^5.5.0"
   }
 }

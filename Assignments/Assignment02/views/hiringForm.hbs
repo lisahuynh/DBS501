@@ -11,7 +11,7 @@
     <br>
     <h2>Employee Hiring Form</h2>
 
-        <form class="empForm" id="employeeForm" method="post" action="/employee">
+        <form class="empForm" id="employeeForm" method="post" action="/hireForm">
         <div class="form-empinfo">
             <h3>Employee Information</h3>
                 <label for="fname">First Name</label>
@@ -23,7 +23,7 @@
                 <br>
                 <br>
                 <label for="email">Email</label>
-                <input id="email" name="email" type="text" placeholder="johnsmith@abc.com" value="">
+                <input id="email" name="email" type="text" placeholder="JSmith" value="">
                 <br>
                 <br>
                 <label for="phone">Phone</label>
@@ -40,24 +40,38 @@
         
         <div class="form-info">
             <h3>Job Information</h3>
+            <label for="jobInd">Job_Id and Job_Title</label>
             <br>
-            <label for="job_id">Job_ID</label>
-            <label for="job_title">Job_Title</label>
+            <br>
+            <select id="jobId" name="jobId">
+                {{#each jobList}}
+                <option value="{{this.[0]}}">{{this.[0]}}</option>
+                {{/each}}
+            </select>
         </div>
 
         <div class="form-info">
             <h3>Manager</h3>
+            <label for="managerId" name="managerId">Manager_Id and Manager_Name</label>
             <br>
-            <label for="employee_id">Employee_id</label>
-            <label for="first_name">First_Name</label>
-            <label for="last_name">Last_Name</label>
+            <br>
+            <select id="managerId" name="managerId">
+                {{#each managerList}}
+                <option value="{{this.[0]}}">{{this.[0]}}</option>
+                {{/each}}
+            </select>
         </div>
 
         <div class="form-info">
             <h3>Department</h3>
+            <label for="deptId" name="deptId">Department_Id and Department_Name</label>
             <br>
-            <label for="department_id">Department_id</label>
-            <label for="department_name">Department_Name</label>
+            <br>
+            <select id="deptId" name="deptId">
+                {{#each deptList}}
+                <option value="{{this.[0]}}">{{this.[0]}}</option>
+                {{/each}}
+            </select>
         </div>
 
     <section class="buttons">

@@ -1,8 +1,0 @@
-CREATE OR REPLACE PROCEDURE CALCULATE_YEARLYSAL_WP 
-(
-  p_EMPLOYEE_ID IN NUMBER 
-) AS 
-v_ysal  number(9,2);
-BEGIN
-    SELECT salary *12 INTO v_ysal FROM hr_employees WHERE employee_id= p_employee_id;
-END CALCULATE_YEARLYSAL_WP;
